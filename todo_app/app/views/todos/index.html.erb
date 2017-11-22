@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Todos</h1>
+
+<table class="table-striped">
+  <thead>
+    <tr class="warning">
+      <th>Title</th>
+      <th>Notes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todos.each do |todo| %>
+      <tr>
+        <td><%= todo.title %></td>
+        <td><%= todo.notes %></td>
+        <td><%= link_to 'Show', todo, class: 'btn btn-primary btn-sm' %></td>
+        <td><%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-info btn-sm' %></td>
+        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm'%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br></br>
+
+<%= link_to new_todo_path, class: 'btn btn-primary' do %>
+  <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+<% end %>
+<i class="glyphicon glyphicon-plus"></i>
+
+<br></br>
+
+<form role="form" class="form-inline">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" class="form-control" />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" class="form-control" />
+  </div>
+
+  <input type="submit" value="Login" />
+  <input type="button" value="Cancel" />
+</form>
