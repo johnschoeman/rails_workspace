@@ -41,8 +41,6 @@ class SessionForm extends Component {
       submitButton = <button onClick={this.handleSumbit} >Sign Up</button>
     }
 
-    console.log(this.state)
-
     return (
       <div>
         <header>{headerText}</header>
