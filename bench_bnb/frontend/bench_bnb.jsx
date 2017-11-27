@@ -4,7 +4,11 @@ import configureStore from './store/store'
 import Root from './components/root'
 
 // Testing
-import { signup, login, logout } from './util/session_api_util'
+import { signup, login, logout } from './util/session_api_util';
+import { getBenches, createBench } from './util/bench_api_util';
+import { fetchBenches } from './actions/bench_actions';
+
+window.fetchBenches = fetchBenches;
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -17,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
+  window.dispatch = store.dispatch
+  window.getState = store.getState
   ReactDOM.render(<Root store={store}/>, root);
 });
