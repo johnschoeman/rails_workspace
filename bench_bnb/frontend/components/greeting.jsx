@@ -6,7 +6,6 @@ class Greeting extends Component {
   render() {
     const currentUser = this.props.currentUser
     const logout = () => {
-      console.log('in logout');
       this.props.logout();
     }
     if (currentUser) {

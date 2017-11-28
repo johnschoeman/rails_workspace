@@ -19,7 +19,6 @@ class BenchesIndex extends Component {
         <div>
           {benchesAllIds.map((benchId) => {
             let bench = benchesById[benchId]
-            console.log(bench)
             return <BenchIndexItem key={`bench-item-${benchId}`}bench={bench} />
           })}
         </div>

@@ -13,8 +13,11 @@ user1 = User.create(username: 'user1', password: 'password')
 user2 = User.create(username: 'user2', password: 'password')
 user3 = User.create(username: 'user3', password: 'password')
 
-coordinates = [(100..120).to_a, (100..120).to_a]
+lat = [37.7749, 37.77, 37.78, 37.79, 37.76]
+lng = [-122.3, -122.33, -122.35, -122.37, -122.4, -122.43, -122.45]
 10.times do
-  lat, lng = coordinates.map(&:sample)
-  Bench.create(description: Faker::Lorem.sentence(1), lat: lat, lng: lng)
+  Bench.create(description: Faker::Lorem.sentence(1), lat: lat.sample, lng: lng.sample)
 end
+
+
+

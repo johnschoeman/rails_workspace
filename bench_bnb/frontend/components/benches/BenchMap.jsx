@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import MarkerManager from '../../util/maker_manager_util';
+
 class BenchMap extends Component {
 
   componentDidMount() {
@@ -8,8 +10,15 @@ class BenchMap extends Component {
       zoom: 13
     }
 
-    this.map = new google.maps.Map(this.mapNode, mapOptions)
+    this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+    this.MarkerManager.updateMarkers(this.props.benches)
   }
+
+  componentDidUpdate() {
+    this.MarkerManager.updateMarkers(this.props.benches)
+  }
+
   render() {
     return (
       <div id='map-container' ref={ map => this.mapNode = map}></div>
