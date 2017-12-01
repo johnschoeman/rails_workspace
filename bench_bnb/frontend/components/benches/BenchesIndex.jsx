@@ -7,10 +7,6 @@ class BenchesIndex extends Component {
     super(props)
   }
 
-  componentDidMount() {
-    this.props.fetchBenches();
-  }
-
   render() {
     const benchesById = this.props.benches.by_id
     const benchesAllIds = this.props.benches.all_ids

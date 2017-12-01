@@ -1,7 +1,8 @@
-export const getBenches = () => (
+export const getBenches = ({bounds}) => (
   $.ajax({
     method: "GET",
     url: "api/benches",
+    data: {bounds},
     error: (err) => console.log(err)
   })
 )

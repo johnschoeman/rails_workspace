@@ -8,7 +8,8 @@ import { signup, login, logout } from './util/session_api_util';
 import { getBenches, createBench } from './util/bench_api_util';
 import { fetchBenches } from './actions/bench_actions';
 
-window.fetchBenches = fetchBenches;
+// window.fetchBenches = fetchBenches;
+// window.getBenches = getBenches
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
@@ -21,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-  window.dispatch = store.dispatch
-  window.getState = store.getState
+
   ReactDOM.render(<Root store={store}/>, root);
 });

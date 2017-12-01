@@ -10,7 +10,11 @@ class Api::BenchesController < ApplicationController
   end
 
   def index
-    @benches = Bench.all
+    if params[:bounds]
+      @benches = Bench.in_bounds(params[:bounds])
+    else
+      @benches = Bench.all
+    end
   end
 
   private
