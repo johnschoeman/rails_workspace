@@ -2,9 +2,9 @@ import React from 'react';
 import { Route } from 'react-router';
 
 import { AuthRoute } from '../util/route_util';
-import GreetingContainer from './GreetingContainer';
-import SessionFormContainer from './SessionFormContainer';
-import SearchContainer from './benches/SearchContainer';
+import GreetingContainer from './greeting/GreetingContainer';
+import SessionFormContainer from './session_form/SessionFormContainer';
+import SearchContainer from './search/SearchContainer';
 
 const App = () => {
   return (
