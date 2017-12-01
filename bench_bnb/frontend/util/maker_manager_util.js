@@ -3,8 +3,6 @@ export default class MarkerManager {
     this.map = map;
     this.markers = {};
     this.handleClick = handleClick;
-
-    this.createMarkerFromBench = this.createMarkerFromBench.bind(this);
   }
 
   updateMarkers(benches) {
@@ -16,10 +14,8 @@ export default class MarkerManager {
       .forEach((newBenchId) => this.createMarkerFromBench(benches.by_id[newBenchId]))
 
     Object.keys(this.markers)
-      .filter((benchId) => { !benches.by_id[benchId] })
-      .forEach((benchId) => removeMarker(this.makers[benchId]))
-
-    console.log(this.markers)
+      .filter((benchId) => !benches.by_id[benchId] )
+      .forEach((benchId) => this.removeMarker(this.markers[benchId]))
   }
 
   createMarkerFromBench(bench) {
@@ -30,11 +26,11 @@ export default class MarkerManager {
       benchId: bench.id
     });
     marker.addListener('click', () => this.handleClick(bench));
-    this.markers[bench.id] = marker;
+    this.markers[marker.benchId] = marker;
   }
 
-  removeMarker(maker) {
-    marker.setMap(null);
-    delete this.markers[marker.benchId]
+  removeMarker(marker) {
+    this.markers[marker.benchId].setMap(null);
+    delete this.markers[marker.benchId];
   }
 }
