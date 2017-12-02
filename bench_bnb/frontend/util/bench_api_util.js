@@ -7,7 +7,7 @@ export const getBenches = ({bounds}) => (
   })
 )
 
-export const createBench = ({bench}) => (
+export const postBench = (bench) => (
   $.ajax({
     method: "POST",
     url: "api/benches",

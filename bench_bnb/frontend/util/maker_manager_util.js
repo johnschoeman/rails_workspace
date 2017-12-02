@@ -9,13 +9,17 @@ export default class MarkerManager {
     if (Object.keys(benches).length === 0) {
       return null;
     }
-    benches.all_ids
-      .filter((benchId) => !this.markers[benchId])
-      .forEach((newBenchId) => this.createMarkerFromBench(benches.by_id[newBenchId]))
-
-    Object.keys(this.markers)
-      .filter((benchId) => !benches.by_id[benchId] )
-      .forEach((benchId) => this.removeMarker(this.markers[benchId]))
+    try {
+      benches.all_ids
+        .filter((benchId) => !this.markers[benchId])
+        .forEach((newBenchId) => this.createMarkerFromBench(benches.by_id[newBenchId]))
+  
+      Object.keys(this.markers)
+        .filter((benchId) => !benches.by_id[benchId] )
+        .forEach((benchId) => this.removeMarker(this.markers[benchId]))
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   createMarkerFromBench(bench) {
