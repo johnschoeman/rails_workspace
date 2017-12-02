@@ -1,8 +1,14 @@
-export const getBenches = ({bounds}) => (
+export const getBenches = ({bounds, minSeating, maxSeating}) => (
   $.ajax({
     method: "GET",
     url: "api/benches",
-    data: {bounds},
+    data: {
+      filter: {
+        bounds,
+        min_seating: minSeating,
+        max_seating: maxSeating
+      }
+    },
     error: (err) => console.log(err)
   })
 )

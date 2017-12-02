@@ -36,7 +36,7 @@ class BenchMap extends Component {
           lng: southWest.lng()
         }
       };
-      this.props.updateBounds(bounds);
+      this.props.updateFilter('bounds', bounds);
     })
 
     this.map.addListener('click', (e) => {
